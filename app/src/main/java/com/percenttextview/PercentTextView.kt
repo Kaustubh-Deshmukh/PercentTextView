@@ -27,10 +27,16 @@ class PercentTextView: TextView {
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+
+        // Don't do additional calculations if max percent >= 1
+        if (mMaxPercentWidth >= 1) {
+            return
+        }
+
         val parentWidth = MeasureSpec.getSize(widthMeasureSpec)
         var newWidth = measuredWidth
-        if (measuredWidth > (parentWidth*mMaxPercentWidth)) {
-            newWidth = (parentWidth*mMaxPercentWidth).toInt()
+        if (measuredWidth > (parentWidth * mMaxPercentWidth)) {
+            newWidth = (parentWidth * mMaxPercentWidth).toInt()
         }
         super.onMeasure(MeasureSpec.makeMeasureSpec(newWidth, MeasureSpec.EXACTLY), heightMeasureSpec)
     }

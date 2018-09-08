@@ -4,6 +4,9 @@ import android.content.Context
 import android.util.AttributeSet
 import android.widget.TextView
 
+/**
+ * PercentTexView : Solves problem of setting max with to a TextView in %.
+ */
 class PercentTextView: TextView {
 
     private var mMaxPercentWidth = 1f

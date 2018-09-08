@@ -12,3 +12,4 @@ app/*.iml
 **/build/
 *.txt
 **/.idea/
+app/libs/
